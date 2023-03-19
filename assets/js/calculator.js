@@ -1,9 +1,23 @@
 const buttons = document.querySelectorAll(".button");
 
-const multiplyButton = document.getElementById('multiply');
-const divideButton = document.getElementById('divide');
-const minusButton = document.getElementById('minus');
-const plusButton = document.getElementById('plus');
+var dropdownMenu = document.querySelector(".dropdown-menu");
+
+// Add an event listener for when any item inside it is clicked
+dropdownMenu.addEventListener("click", (e) => {
+
+    // Get a reference to the clicked item
+    var selectedItem = e.target;
+
+    // Get its text content
+    var selectedItemText = selectedItem.textContent;
+
+    if (operator !== null && secondNum !== "") {
+        calculate();
+    }
+    operator = selectedItemText;
+    outputValue = outputValue.toString().concat(" ", operator, " ")
+    document.getElementById("output-screen-value").textContent = outputValue;
+});
 
 const handleOperator = (e) => {
     if (operator !== null && secondNum !== "") {
@@ -13,11 +27,6 @@ const handleOperator = (e) => {
     outputValue = outputValue.toString().concat(" ", operator, " ")
     document.getElementById("output-screen-value").textContent = outputValue;
 }
-
-multiplyButton.addEventListener('click', handleOperator);
-divideButton.addEventListener('click', handleOperator);
-minusButton.addEventListener('click', handleOperator);
-plusButton.addEventListener('click', handleOperator);
 
 let operator = null;
 let outputValue = 0;
@@ -88,4 +97,3 @@ const calculate = () => {
 buttons.forEach((button) => {
     button.addEventListener("click", handleOperand);
 })
-

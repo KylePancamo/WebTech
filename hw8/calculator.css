@@ -46,12 +46,11 @@
 .col-3,
 .col-12,
 .buttons .col-4 {
-    padding-right: 0px;
-    padding-left: 0px;
-    border-right: 1px solid #252525;
-    border-bottom: 1px solid #252525;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    border-right: 1px solid #252525 !important;
+    border-bottom: 1px solid #252525 !important;
 }
-
 .btn {
     width: 100%;
     border-radius: 0px;
