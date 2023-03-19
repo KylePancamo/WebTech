@@ -76,8 +76,13 @@ const calculate = () => {
     }
     firstNum = parseFloat(outputValue);
     secondNum = "";
+    if (outputValue.toString().includes(".")) {
+        outputValue = parseFloat(outputValue).toFixed(3);
+    } else {
+        outputValue = parseInt(outputValue);
+    }
 
-    return outputValue.toFixed(3);
+    return outputValue;
 }
 
 buttons.forEach((button) => {
