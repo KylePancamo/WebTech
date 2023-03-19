@@ -62,12 +62,9 @@
 #plus,
 #minus,
 #multiply,
+#clear,
 #divide {
     background-color: #655e56;
     color: white;
-}
-
-#clear {
-    background-color: #655e56;
-    color: white;
+    border: 1px solid #655e56;
 }
