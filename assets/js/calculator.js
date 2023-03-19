@@ -6,8 +6,11 @@ const minusButton = document.getElementById('minus');
 const plusButton = document.getElementById('plus');
 
 const handleOperator = (e) => {
+    if (operator !== null && secondNum !== "") {
+        calculate();
+    }
     operator = e.target.textContent;
-    outputValue += operator;
+    outputValue = outputValue.toString().concat(" ", operator, " ")
     document.getElementById("output-screen-value").textContent = outputValue;
 }
 
@@ -31,7 +34,6 @@ const clear = () => {
 
 const handleOperand = (e) => {
     const value = e.target.textContent;
-    console.log(value);
     if (value === "C") {
         clear();
     } else if (value === "=") {
@@ -48,10 +50,8 @@ const handleOperand = (e) => {
 
         if (operator !== null) {
             secondNum += value;
-            console.log(secondNum)
         } else {
             firstNum += value;
-            console.log(firstNum);
         };
     }
     document.getElementById("output-screen-value").textContent = outputValue;
