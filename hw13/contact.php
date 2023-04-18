@@ -43,7 +43,34 @@
                                 </div>
                             </div>
                         </div>
-		    </div>
+		    		</div>
+					<div class="row" id="contact-form">
+						<?php 
+							echo '<form method="post action="">';
+								echo '<div class="form-group">';
+									echo '<p>First name: ';
+									echo '<input type="text" name="firstName"/>';
+									echo '</p>';
+								echo '</div>';
+								echo '<div class="form-group">';
+									echo '<p>Last name: ';
+									echo '<input type="text" name="lastName"/>';
+									echo '</p>';
+								echo '</div>';
+								echo '<div class="form-group">';
+									echo '<p>Phone Number: ';
+									echo '<input type="text" name="phone"/>';
+									echo '</p>';
+								echo '</div>';
+								echo '<div class="form-group">';
+									echo '<p>Comments: ';
+									echo '<input type="text" name="comments"/>';
+									echo '</p>';
+								echo '</div>';
+								echo '<button class="btn btn-primary" type="submit" name="submit" value="submit">Submit</button>';
+							echo '</form>';
+						?>
+					</div>
                 </div>
               </div>
             </div>

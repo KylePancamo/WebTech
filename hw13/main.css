@@ -185,6 +185,7 @@
 .contact {
     align-items: center;
     justify-content: center;
+	flex-direction: column
 }
 
 .contact .card-body {
@@ -205,5 +206,9 @@
 
 .contact .card-body img {
     width: 500px;
+}
+
+#contact-form {
+	margin-top: 10px;
 }
 
