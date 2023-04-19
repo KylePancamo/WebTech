@@ -1,4 +1,5 @@
 const buttons = document.querySelectorAll(".button");
+const decimalButton = document.querySelector(".decimal");
 
 var dropdownMenu = document.querySelector(".dropdown-menu");
 
@@ -28,7 +29,9 @@ const handleOperator = (e) => {
     document.getElementById("output-screen-value").textContent = outputValue;
 }
 
+
 let operator = null;
+let decimal = "";
 let outputValue = 0;
 let firstNum = "";
 let secondNum = "";
@@ -41,8 +44,30 @@ const clear = () => {
     operator = null;
 }
 
+const handleDecimal = (e) => {
+    if (operator !== null) {
+        if (secondNum.toString().includes(".")) {
+            return;
+        }
+    } else {
+        if (firstNum.toString().includes(".")) {
+            return;
+        }
+    }
+    outputValue += e.target.textContent;
+    if (operator !== null) {
+        secondNum += e.target.textContent;
+    } else {
+        firstNum += e.target.textContent;
+    }
+    document.getElementById("output-screen-value").textContent = outputValue;
+}
+
+decimalButton.addEventListener("click", handleDecimal);
+
 const handleOperand = (e) => {
     const value = e.target.textContent;
+
     if (value === "C") {
         clear();
     } else if (value === "=") {
@@ -57,7 +82,7 @@ const handleOperand = (e) => {
                 break;
         }
 
-        if (operator !== null) {
+        if (operator !== null) {  
             secondNum += value;
         } else {
             firstNum += value;
@@ -85,6 +110,7 @@ const calculate = () => {
     }
     firstNum = parseFloat(outputValue);
     secondNum = "";
+    operator = null;
     if (outputValue.toString().includes(".")) {
         outputValue = parseFloat(outputValue).toFixed(3);
     } else {
